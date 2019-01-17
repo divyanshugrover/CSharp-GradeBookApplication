@@ -21,6 +21,7 @@ namespace GradeBook.GradeBooks
             List<double> studentGrades = new List<double>();
             Students.ForEach(s => studentGrades.Add(s.AverageGrade));
             studentGrades.Sort();
+            studentGrades.Reverse();
             var index = studentGrades.FindIndex(val => val >= averageGrade);
             int bucket = (index * 5) / studentGrades.Count;
             switch (bucket)
