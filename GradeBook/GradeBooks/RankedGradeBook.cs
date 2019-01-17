@@ -22,17 +22,17 @@ namespace GradeBook.GradeBooks
             Students.ForEach(s => studentGrades.Add(s.AverageGrade));
             studentGrades.Sort();
             studentGrades.Reverse();
-            var index = studentGrades.FindIndex(val => val >= averageGrade);
+            var index = studentGrades.FindIndex(val => val < averageGrade);
             int bucket = (index * 5) / studentGrades.Count;
             switch (bucket)
             {
-                case 0:
-                    return 'A';
                 case 1:
-                    return 'B';
+                    return 'A';
                 case 2:
-                    return 'C';
+                    return 'B';
                 case 3:
+                    return 'C';
+                case 4:
                     return 'D';
             }
             return 'F';
